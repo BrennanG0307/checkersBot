@@ -2,6 +2,11 @@ class tile{
   private int state;
   private int side;
 
+  tile(){
+
+
+  }
+
   String checkMove(int x,int y){
     switch(state){
       case 0:
@@ -30,10 +35,12 @@ class tile{
   }
 
   int getState(){
+
     return state;
   }
 
   int getSide(){
+
     return side;
   }
 
