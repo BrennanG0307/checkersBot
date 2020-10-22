@@ -73,12 +73,12 @@ public ArrayList<tile> y;
 
   int getState(int x, int y){
 
-
+  return 1;
   }
 
   int getSide(int x, int y){
 
-
+  return 1;
   }
 
 
