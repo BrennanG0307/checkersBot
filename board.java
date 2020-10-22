@@ -81,6 +81,11 @@ public ArrayList<tile> y;
   return 1;
   }
 
+  ArrayList<Integer> getList(int side){
+    
+
+  }
+
 
 }
 
