@@ -112,8 +112,15 @@ class agent{
   }
 
   void saveMoves(){
-    
+    try{
+      FileWriter fw = new FileWriter(fileName);
+      for(int i = 0; i < savedBoardState.size(); i++){
+        fw.write(savedMovePath.get(i) + "," + savedBoardState.get(i) + "," + moveValue.get(i) + "/n");
+      }
+    }
+    catch(Exception e){
 
+    }
   }
 
   void updateFile(){
