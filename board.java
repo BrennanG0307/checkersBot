@@ -103,6 +103,11 @@ public ArrayList<tile> y;
     return temp;
   }
 
+  void updateBoard(){
+
+    
+  }
+
 
 }
 

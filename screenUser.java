@@ -29,6 +29,23 @@ public class screenUser{
         r.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
     }
 
+    void makeMove(String move){
+
+
+    }
+
+    boolean gameOver(){
+
+      return true;
+    }
+
+    boolean isTurn(){
+
+      return true;
+    }
+
+    
+
 
     void defineBoard(){
 

@@ -121,6 +121,7 @@ class agent{
     catch(Exception e){
 
     }
+    fw.close();
   }
 
   void updateFile(){
