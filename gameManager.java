@@ -1,7 +1,9 @@
 class gameManger{
+
   agent a = new agent("a.txt");
   board b = new board();
   screenUser g = new screenUser();
+  
   void playGame(){
 
     boolean gameRun = true;

@@ -95,8 +95,8 @@ class agent{
       moveSet.add(piece.getMoveSet(tempX,tempY,b));
     }
     //Pick a random move from the list generated of moves
-    int randomInt = rand.nextInt(moveSet.size());
-    int randomInt2 = rand.nextInt(moveSet.get(randomInt).size());
+    int randomInt = rand.nextInt(moveSet.size() - 1);
+    int randomInt2 = rand.nextInt(moveSet.get(randomInt).size() - 1);
 
     tempArrayList = moveSet.get(randomInt);
 
