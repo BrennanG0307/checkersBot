@@ -1,6 +1,6 @@
 class tile{
-  private int state;
-  private int side;
+  private int state = 0;
+  private int side = 0;
 
   tile(){
 

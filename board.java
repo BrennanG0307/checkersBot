@@ -66,24 +66,41 @@ public ArrayList<tile> y;
 
   }
 
-  void resetBoard(){
+  void setBoard(String boardState){
     //Reset board to start state
 
   }
 
-  int getState(int x, int y){
+  String getBoardState(){
+    String board = "";
+    for (int i = 0; i < b.size()-1; i++) {
+      for (int j = 0; j < y.size()-1; j++) {
+        board = board + Integer.toString(getState(j,i)) + Integer.toString((getSide(j,i)));
+      }
+    }
+    return board;
+  }
 
-  return 1;
+  int getState(int x, int y){
+    ArrayList<tile> temp = b.get(x);
+    return temp.get(y).getState();
   }
 
   int getSide(int x, int y){
-
-  return 1;
+    ArrayList<tile> temp = b.get(x);
+    return temp.get(y).getSide();
   }
 
   ArrayList<Integer> getList(int side){
-    
-
+    ArrayList<Integer> temp = new ArrayList<>();
+    for (int i = 0; i < b.size()-1; i++) {
+      for (int j = 0; j < y.size()-1; j++) {
+        if(getSide(i,j) == side){
+          temp.add((i*10) + j);
+        }
+      }
+    }
+    return temp;
   }
 
 

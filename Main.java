@@ -5,7 +5,8 @@ class Main {
   public static void main(String[] args) throws AWTException {
     System.out.println("Hello world!");
     screenUser a = new screenUser();
-
+    a.makeMove(1,6,2,5);
+    a.getBoardState();
 
 
   }
