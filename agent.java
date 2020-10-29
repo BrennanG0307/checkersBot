@@ -117,11 +117,12 @@ class agent{
       for(int i = 0; i < savedBoardState.size(); i++){
         fw.write(savedMovePath.get(i) + "," + savedBoardState.get(i) + "," + moveValue.get(i) + "/n");
       }
+      fw.close();
     }
     catch(Exception e){
 
     }
-    fw.close();
+    
   }
 
   void updateFile(){
