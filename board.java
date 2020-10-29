@@ -11,9 +11,9 @@ private String boardStates = "";
   board() throws AWTException {
     this.b = new ArrayList();
     ArrayList<tile> y = new ArrayList<>();
+    //Sets up the board with 64 balnk tiles
     for(int i = 0; i < 8; i++){
         for(int j = 0; j < 8; j++){
-
           tile t = new tile();
           b.add(t);
         }
@@ -75,15 +75,6 @@ private String boardStates = "";
   }
 
   String getBoardState(){
-    /*
-    String board = "";
-    for (int i = 0; i < 7; i++) {
-      for (int j = 0; j < 7; j++) {
-        board = board + Integer.toString(getState(j,i)) + Integer.toString((getSide(j,i)));
-      }
-    }
-
-     */
     return boardStates;
   }
 
@@ -97,6 +88,7 @@ private String boardStates = "";
 
 
   ArrayList<Integer> getList(int side){
+    //Searches for any tile that has a side value the same as the one specified in the argument, then returns a list of there x and y
     ArrayList<Integer> temp = new ArrayList<>();
     for (int i = 0; i < 8; i++) {
       for (int j = 0; j < 8; j++) {
