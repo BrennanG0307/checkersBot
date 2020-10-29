@@ -113,7 +113,7 @@ class agent{
     indexMovesMade.add(savedBoardState.size());
     savedBoardState.add(b.getBoardState());
     savedMovePath.add(tempArrayList.get(randomInt2));
-    moveValue.add(-1);
+    moveValue.add(0);
 
 
     return tempArrayList.get(randomInt2);
@@ -123,6 +123,9 @@ class agent{
 
   void saveMoves(){
     String dumpFile = "";
+    for (int i = 0; i < indexMovesMade.size(); i++) {
+      moveValue.set(i, moveValue.get(indexMovesMade.get(i)) - 1);
+    }
     for (int i = 0; i < savedBoardState.size(); i++) {
       dumpFile = dumpFile + savedBoardState.get(i) + "," + savedMovePath.get(i) + "," + moveValue.get(i) + "\n" ;
     }
