@@ -1,19 +1,22 @@
+import java.awt.*;
 import java.util.ArrayList;
 
 
 class board{
-public ArrayList<ArrayList> b;
-public ArrayList<tile> y;
 
-  board(){
+public ArrayList<tile> b;
+//screenUser g = new screenUser();
+private String boardStates = "";
+
+  board() throws AWTException {
     this.b = new ArrayList();
-    this.y = new ArrayList();
+    ArrayList<tile> y = new ArrayList<>();
     for(int i = 0; i < 8; i++){
         for(int j = 0; j < 8; j++){
+
           tile t = new tile();
-          y.add(t);
+          b.add(t);
         }
-     b.add(y);
     }
   }
 /*
@@ -33,7 +36,7 @@ public ArrayList<tile> y;
     }
   }
   */
-
+/*
   void makeMove(String[] path){
     int tempX;
     int tempY;
@@ -65,36 +68,39 @@ public ArrayList<tile> y;
     }
 
   }
-
+*/
   void setBoard(String boardState){
     //Reset board to start state
 
   }
 
   String getBoardState(){
+    /*
     String board = "";
-    for (int i = 0; i < b.size()-1; i++) {
-      for (int j = 0; j < y.size()-1; j++) {
+    for (int i = 0; i < 7; i++) {
+      for (int j = 0; j < 7; j++) {
         board = board + Integer.toString(getState(j,i)) + Integer.toString((getSide(j,i)));
       }
     }
-    return board;
+
+     */
+    return boardStates;
   }
 
   int getState(int x, int y){
-    ArrayList<tile> temp = b.get(x);
-    return temp.get(y).getState();
+  return b.get((8*(y)) + x).getState();
   }
 
   int getSide(int x, int y){
-    ArrayList<tile> temp = b.get(x);
-    return temp.get(y).getSide();
+    return b.get((8*(y)) + x).getSide();
   }
+
 
   ArrayList<Integer> getList(int side){
     ArrayList<Integer> temp = new ArrayList<>();
-    for (int i = 0; i < b.size()-1; i++) {
-      for (int j = 0; j < y.size()-1; j++) {
+    for (int i = 0; i < 8; i++) {
+      for (int j = 0; j < 8; j++) {
+        int tempTest = getSide(i,j);
         if(getSide(i,j) == side){
           temp.add((i*10) + j);
         }
@@ -103,8 +109,33 @@ public ArrayList<tile> y;
     return temp;
   }
 
-  void updateBoard(){
+  void updateBoard(screenUser g){
+    String boardState = g.getBoardState();
+    boardStates = boardState;
+    ArrayList<tile> tempList;
+    int section = 0;
+    String temp;
 
+    for (int i = 0; i < 64; i++) {
+
+        temp = boardState.substring(section, section+2);
+        switch (temp) {
+          case "00":
+            b.get(i).changeTile(0,0);
+            break;
+
+          case "11":
+            b.get(i).changeTile(1,1);
+            break;
+
+          case "12":
+            b.get(i).changeTile(1,2);
+            break;
+        }
+        section = section +2;
+
+
+    }
     
   }
 

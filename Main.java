@@ -1,12 +1,12 @@
 import java.awt.*;
+import java.io.FileWriter;
+import java.io.IOException;
 
 class Main {
   //This software does not run in repl do to the java.awt.robot class
-  public static void main(String[] args) throws AWTException {
-    System.out.println("Hello world!");
-    screenUser a = new screenUser();
-    a.makeMove(1,6,2,5);
-    a.getBoardState();
+  public static void main(String[] args) throws AWTException, InterruptedException, IOException {
+    gameManger g = new gameManger();
+    g.playGame();
 
 
   }

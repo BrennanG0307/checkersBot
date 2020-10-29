@@ -1,13 +1,22 @@
+import java.awt.*;
+
 class gameManger{
 
   agent a = new agent("a.txt");
   board b = new board();
-  screenUser g = new screenUser();
-  
-  void playGame(){
+  screenUser g;
+
+  gameManger() throws AWTException {
+    g = new screenUser();
+
+  }
+
+
+  void playGame() throws InterruptedException {
 
     boolean gameRun = true;
     boolean gameTurn = true;
+
 
     while(gameRun){
       
@@ -16,15 +25,17 @@ class gameManger{
         if(g.isTurn()){
           gameTurn = false;
         }
+        if(g.gameOver()){
+          a.saveMoves();
+        }
       }
 
-
-      b.updateBoard();
+      b.updateBoard(g);
       g.makeMove(a.makeMove(b));
       gameTurn = true;
 
       if(g.gameOver()){
-        gameRun = false;
+        a.saveMoves();
       }
 
     }
